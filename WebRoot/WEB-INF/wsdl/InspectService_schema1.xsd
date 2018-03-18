@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inspectbox.itirion.com/" targetNamespace="http://inspectbox.itirion.com/" version="1.0">
+
+  <xs:element name="checkLogin" type="tns:checkLogin"/>
+  <xs:element name="checkLoginResponse" type="tns:checkLoginResponse"/>
+
+  <xs:element name="checkNew" type="tns:checkNew"/>
+  <xs:element name="checkNewResponse" type="tns:checkNewResponse"/>
+ 
+ <xs:element name="majdone" type="tns:majdone"/>
+  <xs:element name="majdoneResponse" type="tns:majdoneResponse"/>
+ 
+
+
+  <xs:element name="getChoix" type="tns:getChoix"/>
+  <xs:element name="getChoixResponse" type="tns:getChoixResponse"/>
+   
+  
+   
+   <xs:element name="getTeam" type="tns:getTeam"/>
+  <xs:element name="getTeamResponse" type="tns:getTeamResponse"/>
+  
+   <xs:element name="getObjeteam" type="tns:getObjeteam"/>
+   <xs:element name="getObjeteamResponse" type="tns:getObjeteamResponse"/>
+  
+  
+   <xs:element name="getDatesModifications" type="tns:getDatesModifications"/>
+  <xs:element name="getDatesModificationsResponse" type="tns:getDatesModificationsResponse"/>
+
+  <xs:element name="getLibelleNiveaux" type="tns:getLibelleNiveaux"/>
+  <xs:element name="getLibelleNiveauxResponse" type="tns:getLibelleNiveauxResponse"/>
+
+  <xs:element name="getNiveauObjets" type="tns:getNiveauObjets"/>
+  <xs:element name="getNiveauObjetsResponse" type="tns:getNiveauObjetsResponse"/>
+
+  <xs:element name="getNiveaux" type="tns:getNiveaux"/>
+  <xs:element name="getNiveauxResponse" type="tns:getNiveauxResponse"/>
+
+  <xs:element name="getTypeReponses" type="tns:getTypeReponses"/>
+  <xs:element name="getTypeReponsesResponse" type="tns:getTypeReponsesResponse"/>
+
+  <xs:element name="getUtilisateurs" type="tns:getUtilisateurs"/>
+  <xs:element name="getUtilisateursResponse" type="tns:getUtilisateursResponse"/>
+
+  <xs:element name="hello" type="tns:hello"/>
+  <xs:element name="helloResponse" type="tns:helloResponse"/>
+
+  <xs:element name="setInspections" type="tns:setInspections"/>
+  <xs:element name="setInspectionsResponse" type="tns:setInspectionsResponse"/>
+
+  <xs:element name="setCloture" type="tns:setCloture"/>
+  <xs:element name="setClotureResponse" type="tns:setClotureResponse"/>
+  
+  <xs:element name="setStatutInac" type="tns:setStatutInac"/>
+  <xs:element name="setStatutInacResponse" type="tns:setStatutInacResponse"/>
+  
+   <xs:element name="setNfc" type="tns:setNfc"/>
+  <xs:element name="setNfcResponse" type="tns:setNfcResponse"/>
+    
+   <xs:element name="setStatusPI" type="tns:setStatusPI"/>
+  <xs:element name="setStatusPIResponse" type="tns:setStatusPIResponse"/>
+  
+   
+  <xs:complexType name="getLibelleNiveaux">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getLibelleNiveauxResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:libelleniveau"/>
+    </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="libelleniveau">
+    <xs:sequence>
+<xs:element minOccurs="1" name="idLibelleNiveau" type="xs:int"/>
+      <xs:element minOccurs="0" name="libelle" type="xs:string"/>
+      <xs:element minOccurs="1" name="num" type="xs:int"/>
+      <xs:element minOccurs="1" name="typeNiveau" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="getDatesModifications">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getDatesModificationsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:clefTimestamp"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="clefTimestamp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nomTable" type="xs:string"/>
+      <xs:element minOccurs="0" name="timestamp" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="getNiveauObjets">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getNiveauObjetsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:niveauobjet"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="niveauobjet">
+    <xs:sequence>
+<xs:element minOccurs="0" name="codeBarre" type="xs:string"/>
+      
+      <xs:element minOccurs="1" name="idNiveauObjetParent" type="xs:int"/>
+      <xs:element minOccurs="1" name="idNiveauobjet" type="xs:int"/>
+      <xs:element minOccurs="1" name="idTypereponse" type="xs:int"/>
+      <xs:element minOccurs="0" name="libelle" type="xs:string"/>
+      <xs:element minOccurs="0" name="codeBarre" type="xs:string"/>
+      <xs:element minOccurs="1" name="tri" type="xs:int"/>
+      <xs:element minOccurs="0" name="unitmeasure" type="xs:string"/>
+	  <xs:element minOccurs="0" name="lowlimit" type="xs:double"/>
+	  <xs:element minOccurs="0" name="highlimit" type="xs:double"/>
+	  <xs:element minOccurs="0" name="lowborder" type="xs:double"/>
+	  <xs:element minOccurs="0" name="highborder" type="xs:double"/>
+	   <xs:element minOccurs="0" name="lowborderalert" type="xs:string"/>
+	  <xs:element minOccurs="0" name="highborderalert" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="checkLogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="checkLoginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+ <xs:complexType name="checkNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+      <xs:element minOccurs="0" name="idTerminal" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="checkNewResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+<xs:complexType name="majdone">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+      <xs:element minOccurs="0" name="idTerminal" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="majdoneResponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  
+ <xs:complexType name="getTypeReponses">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getTypeReponsesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:typereponse"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typereponse">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="idTypeReponse" type="xs:int"/>
+      <xs:element minOccurs="0" name="libelle" type="xs:string"/>
+      <xs:element minOccurs="0" name="modeReponse" type="xs:string"/>
+     
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="getChoix">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getChoixResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:choix"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="choix">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="idChoix" type="xs:int"/>
+      <xs:element minOccurs="1" name="idTypereponse" type="xs:int"/>
+      <xs:element name="nonConforme" type="xs:boolean"/>
+      <xs:element name="tri" type="xs:int" minOccurs="1"/>
+      <xs:element minOccurs="0" name="valeur" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+
+
+
+   <xs:complexType name="getTeam">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTeamResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:team"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="team">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="idteam" type="xs:int"/>
+      <xs:element minOccurs="0" name="beginHour" type="xs:string"/>
+      <xs:element minOccurs="0" name="endHour" type="xs:string"/>
+      <xs:element name="dayOfWork" type="xs:string" minOccurs="0"/>
+      <xs:element minOccurs="1" name="idUser" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+
+
+  <xs:complexType name="getObjeteam">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getObjeteamResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:objeteam"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="objeteam">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="idField" type="xs:int"/>
+      <xs:element minOccurs="1" name="idTeam" type="xs:int"/>
+      <xs:element minOccurs="1" name="idObjet" type="xs:int"/>
+        <xs:element name="lun" type="xs:boolean"/>
+         <xs:element name="mar" type="xs:boolean"/>
+          <xs:element name="mer" type="xs:boolean"/>
+           <xs:element name="jeu" type="xs:boolean"/>
+            <xs:element name="ven" type="xs:boolean"/>
+             <xs:element name="sam" type="xs:boolean"/>
+              <xs:element name="dim" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="getUtilisateurs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUtilisateursResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:utilisateur"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="utilisateur">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codeAcces" type="xs:string"/>
+      <xs:element minOccurs="1" name="idUtilisateur" type="xs:int"/>
+      <xs:element minOccurs="0" name="motDePasse" type="xs:string"/>
+      <xs:element minOccurs="0" name="nom" type="xs:string"/>
+      <xs:element minOccurs="0" name="prenom" type="xs:string"/>
+       <xs:element minOccurs="0" name="typeUser" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="hello">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="helloResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="getNiveaux">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getNiveauxResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:niveau"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="niveau">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codeBarre" type="xs:string"/>
+      <xs:element minOccurs="0" name="areaTag" type="xs:string"/>
+      <xs:element minOccurs="1" name="idNiveau" type="xs:int"/>
+      <xs:element minOccurs="1" name="idNiveauParent" type="xs:int"/>
+      <xs:element minOccurs="1" name="idNiveauobjet" type="xs:int"/>
+      <xs:element minOccurs="1" name="idTypereponse" type="xs:int"/>
+      <xs:element minOccurs="0" name="libelle" type="xs:string"/>
+      <xs:element minOccurs="1" name="tri" type="xs:int"/>
+       <xs:element minOccurs="1" name="level" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+  <xs:complexType name="inspection">
+  	<xs:sequence>
+  		<xs:element name="idNiveau" type="xs:int" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="idNiveauObjet" type="xs:int" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="idInformation" type="xs:string" minOccurs="1" maxOccurs="1" />
+  		<xs:element name="idChoix" type="xs:int" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="reponse" type="xs:string" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="defekt" type="xs:boolean" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="limite" type="xs:boolean" maxOccurs="1" minOccurs="1"/>
+   		 <xs:element name="dateInformation" type="xs:string" maxOccurs="1" minOccurs="1"/>
+  	</xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reponseInspection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idInformation" type="xs:string"/>
+      <xs:element minOccurs="1" name="codeErreur" type="xs:int"/>
+	  <xs:element minOccurs="0" name="commentaire" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="setInspections">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+      <xs:element minOccurs="0" name="IdTerminal" type="xs:string"/>
+      <xs:element minOccurs="1" name="IdUtilisateur" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" name="Inspection" type="tns:inspection"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setInspectionsResponse">
+    <xs:sequence>
+      <xs:element  maxOccurs="unbounded" name="return" type="tns:reponseInspection"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+   
+
+<xs:complexType name="cloture">
+  	<xs:sequence>
+  		<xs:element name="idNiveau" type="xs:int" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="statutCloture" type="xs:int" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="dateCloture" type="xs:string" minOccurs="1" maxOccurs="1" />
+  		<xs:element name="debDateCloture" type="xs:string" minOccurs="1"/>
+  		<xs:element name="userCloture" type="xs:int" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="dayCloture" type="xs:int" maxOccurs="1" minOccurs="1"/>
+    	</xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reponseCloture">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idNiveau" type="xs:int"/>
+      <xs:element minOccurs="1" name="codeErreur" type="xs:int"/>
+	  <xs:element minOccurs="0" name="commentaire" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="setCloture">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+      <xs:element minOccurs="0" name="IdTerminal" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="Cloture" type="tns:cloture"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setClotureResponse">
+    <xs:sequence>
+      <xs:element  maxOccurs="unbounded" name="return" type="tns:reponseCloture"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+
+<xs:complexType name="statutInac">
+  	<xs:sequence>
+  		<xs:element name="idNiveau" type="xs:int" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="statutValue" type="xs:boolean" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="dateinacc" type="xs:string" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="objet" type="xs:int" maxOccurs="1" minOccurs="1"/>
+  		</xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reponseStatutInac">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idNiveau" type="xs:int"/>
+      <xs:element minOccurs="1" name="codeErreur" type="xs:int"/>
+	  <xs:element minOccurs="0" name="commentaire" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="setStatutInac">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+      <xs:element minOccurs="0" name="IdTerminal" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="StatutInac" type="tns:statutInac"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setStatutInacResponse">
+    <xs:sequence>
+      <xs:element  maxOccurs="unbounded" name="return" type="tns:reponseStatutInac"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+<xs:complexType name="nfc">
+  	<xs:sequence>
+  		<xs:element name="idNiveau" type="xs:int" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="nfcTag" type="xs:string" maxOccurs="1" minOccurs="1"/>
+  		
+  		</xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reponseNfc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idNiveau" type="xs:int"/>
+      <xs:element minOccurs="1" name="codeErreur" type="xs:int"/>
+	  <xs:element minOccurs="0" name="commentaire" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="setNfc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+      <xs:element minOccurs="0" name="IdTerminal" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="Nfc" type="tns:nfc"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setNfcResponse">
+    <xs:sequence>
+      <xs:element  maxOccurs="unbounded" name="return" type="tns:reponseNfc"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+<xs:complexType name="statusPI">
+  	<xs:sequence>
+  		<xs:element name="areaTag" type="xs:string"  minOccurs="1"/>
+  		<xs:element name="tagName" type="xs:string" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="tagDescription" type="xs:string" maxOccurs="1" minOccurs="1"/>
+  		<xs:element name="tagUnit" type="xs:string" minOccurs="1"/>
+  		<xs:element name="value" type="xs:string" minOccurs="1"/>
+  		<xs:element name="status" type="xs:string" minOccurs="1" maxOccurs="1" />
+  		<xs:element name="lowLimit" type="xs:string" minOccurs="1"/>
+  		<xs:element name="highLimit" type="xs:string" minOccurs="1"/>
+  		<xs:element name="lowBorder" type="xs:string" minOccurs="1"/>
+  		<xs:element name="highBorder" type="xs:string" minOccurs="1"/>
+  		<xs:element name="timestamp" type="xs:string"  minOccurs="1"/>
+  		
+    	</xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reponseStatusPI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idTag" type="xs:int"/>
+      <xs:element minOccurs="1" name="codeErreur" type="xs:int"/>
+	  <xs:element minOccurs="0" name="commentaire" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+ <xs:complexType name="setStatusPI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeAcces" type="xs:string"/>
+      <xs:element minOccurs="0" name="ClefClient" type="xs:string"/>
+      <xs:element minOccurs="0" name="VersionService" type="xs:string"/>
+      <xs:element minOccurs="0" name="IdTerminal" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="StatusPI" type="tns:statusPI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="setStatusPIResponse">
+    <xs:sequence>
+      <xs:element  maxOccurs="unbounded" name="return" type="tns:reponseStatusPI"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+
+
+</xs:schema>
